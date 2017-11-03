@@ -56,8 +56,6 @@ public class CalculerRemunerationServiceSimple implements CalculerRemunerationSe
 						.orElse(BigDecimal.ZERO))
 				));
 
-
-
 		return resultat;
 	}
 
