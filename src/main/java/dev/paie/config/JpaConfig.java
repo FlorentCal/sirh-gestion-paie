@@ -1,12 +1,12 @@
 package dev.paie.config;
 
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -17,6 +17,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 public class JpaConfig {
+	
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("app");
+	
+	String dialect = resourceBundle.getString("hibernate.dialect");
+	String schemaGenerationDbAction = resourceBundle.getString("schema-generation.database.action");
 	
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
@@ -40,7 +45,9 @@ public class JpaConfig {
 		factory.setDataSource(dataSource);
 		
 		Properties jpaProperties = new Properties();
-		jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57InnoDBDialect");
+		jpaProperties.setProperty("javax.persistence.schema-generation.database.action", schemaGenerationDbAction);
+		jpaProperties.setProperty("hibernate.dialect", dialect);
+		jpaProperties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		factory.setJpaProperties(jpaProperties);
 		factory.afterPropertiesSet();
 		return factory.getObject();
