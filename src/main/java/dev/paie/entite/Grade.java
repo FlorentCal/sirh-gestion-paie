@@ -19,6 +19,13 @@ public class Grade {
 		this.code = code;
 		this.nbHeuresBase = nbHeuresBase;
 		this.tauxBase = tauxBase;
+	}	
+
+	public Grade(String code, BigDecimal nbHeuresBase, BigDecimal tauxBase) {
+		super();
+		this.code = code;
+		this.nbHeuresBase = nbHeuresBase;
+		this.tauxBase = tauxBase;
 	}
 
 	public String getCode() {
