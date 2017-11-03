@@ -14,10 +14,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dev.paie.config.DataSourceMySQLConfig;
+import dev.paie.config.ServicesConfig;
 import dev.paie.entite.Grade;
 
-@ContextConfiguration(classes = { DataSourceMySQLConfig.class })
+@ContextConfiguration(classes = { ServicesConfig.class })
 @RunWith(SpringRunner.class)
 public class GradeServiceJdbcTemplateTest {
 
@@ -38,19 +38,25 @@ public class GradeServiceJdbcTemplateTest {
 
 	@Test
 	public void test_sauvegarder_lister_mettre_a_jour() {
-		// TODO sauvegarder un nouveau grade
-		gradeService.sauvegarder(new Grade(1, "CID", new BigDecimal("35"), new BigDecimal("13.5")));
+		gradeService.sauvegarder(new Grade(
+				1, 
+				"CID", 
+				new BigDecimal("35"), 
+				new BigDecimal("13.5")));
 
-		// TODO vérifier qu'il est possible de récupérer le nouveau grade via la méthode lister
 		assertThat(gradeService.lister().size()).isEqualTo(1);
 
-		// TODO modifier un grade
-		gradeService.mettreAJour(new Grade(1, "PDG", new BigDecimal("60"), new BigDecimal("20")));
+		gradeService.mettreAJour(new Grade(
+				1, 
+				"PDG", 
+				new BigDecimal("60"), 
+				new BigDecimal("20")));
 
-		// TODO vérifier que les modifications sont bien prises en compte via la méthode lister
-		assertThat(gradeService.lister().get(0).getCode()).isEqualTo("PDG");
-		assertThat(gradeService.lister().get(0).getNbHeuresBase()).isEqualTo("60.00");
-		assertThat(gradeService.lister().get(0).getTauxBase()).isEqualTo("20.00");
+		
+		Grade grade = gradeService.lister().get(0);
+		assertThat(grade.getCode()).isEqualTo("PDG");
+		assertThat(grade.getNbHeuresBase()).isEqualTo("60.00");
+		assertThat(grade.getTauxBase()).isEqualTo("20.00");
 	}
 
 }

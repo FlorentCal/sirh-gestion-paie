@@ -12,7 +12,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import dev.paie.util.URLBuilder;
 
 @Configuration
-@ComponentScan({"dev.paie.service", "dev.paie.util"})
 public class DataSourceMySQLConfig {
 
 	@Bean
