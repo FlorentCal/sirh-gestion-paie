@@ -35,7 +35,6 @@ public class JpaConfig {
 	// Elle s'utilise donc en association avec un autre fichier de configuration définissant un bean DataSource.
 	public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		vendorAdapter.setGenerateDdl(true);
 		// activer les logs SQL
 		vendorAdapter.setShowSql(true);
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
