@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/ajout.css">>
+	href="<%=request.getContextPath()%>/css/employe.css">
 
 <jsp:include page="../script.jsp"></jsp:include>
 
@@ -21,7 +21,7 @@
 				href="<c:url value='/mvc/employes/creer'/>">Ajouter un employé</a>
 		</div>
 
-		<div class="row">
+		<div class="row top">
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>

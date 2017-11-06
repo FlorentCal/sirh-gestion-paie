@@ -14,7 +14,6 @@ import dev.paie.repository.EmployeRepository;
 import dev.paie.repository.EntrepriseRepository;
 import dev.paie.repository.GradeRepository;
 import dev.paie.repository.ProfilRepository;
-import dev.paie.service.GradeService;
 
 @Controller
 @RequestMapping("/employes")
@@ -59,8 +58,7 @@ public class RemunerationEmployeController {
 
 		employes.save(remunerationEmploye);
 
-		//Bug actuel, attente liaison future
-		return "/mvc/employes";
+		return "redirect:/mvc/employes/lister";
 	}
 	
 

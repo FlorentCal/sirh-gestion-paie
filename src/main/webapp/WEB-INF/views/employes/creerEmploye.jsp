@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/ajout.css">>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/employe.css">
 
 <jsp:include page="../script.jsp"></jsp:include>
 
