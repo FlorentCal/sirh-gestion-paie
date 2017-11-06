@@ -4,7 +4,7 @@
 		<a class="btn btn-primary" href="<c:url value=''/>">Employés</a> <a
 			class="btn btn-primary" href="<c:url value=''/>">Bulletins</a>
 	</div>
-	<div class="row" style="text-align: center;">
+	<div class="row">
 		<h1 style="font-weight: bold;">${titre}</h1>
 	</div>
 </div>

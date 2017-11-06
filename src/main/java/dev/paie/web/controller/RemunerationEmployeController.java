@@ -22,13 +22,13 @@ public class RemunerationEmployeController {
 
 	@Autowired
 	private EmployeRepository employes;
-	
+
 	@Autowired
 	private EntrepriseRepository entreprises;
-	
+
 	@Autowired
 	private ProfilRepository profils;
-	
+
 	@Autowired
 	private GradeRepository grades;
 
@@ -42,24 +42,36 @@ public class RemunerationEmployeController {
 		mv.addObject("grades", grades.findAll());
 		return mv;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST, path = "/creer")
 	public String creerEmploye(
 			@RequestParam("matricule") String matricule,
 			@RequestParam("profil") Integer profil,
 			@RequestParam("grade") Integer grade,
 			@RequestParam("entreprise") Integer entreprise) {
-		
-			RemunerationEmploye remunerationEmploye= new RemunerationEmploye();
-			remunerationEmploye.setMatricule(matricule);
-			remunerationEmploye.setEntreprise(entreprises.findOne(entreprise));
-			remunerationEmploye.setProfilRemuneration(profils.findOne(profil));
-			remunerationEmploye.setGrade(grades.findOne(grade));
-			
-			employes.save(remunerationEmploye);
-			
-			//Bug actuel, attente liaison future
-			return "/mvc/employes";
-		}
+
+		RemunerationEmploye remunerationEmploye= new RemunerationEmploye();
+		remunerationEmploye.setMatricule(matricule);
+		remunerationEmploye.setEntreprise(entreprises.findOne(entreprise));
+		remunerationEmploye.setProfilRemuneration(profils.findOne(profil));
+		remunerationEmploye.setGrade(grades.findOne(grade));
+		remunerationEmploye.setDateHeureCreation(LocalDateTime.now());
+
+		employes.save(remunerationEmploye);
+
+		//Bug actuel, attente liaison future
+		return "/mvc/employes";
+	}
+	
+
+	@RequestMapping(method = RequestMethod.GET, path = "/lister")
+	public ModelAndView listerEmployes() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("employes/listerEmployes");
+		mv.addObject("titre", "Liste des employés");
+		mv.addObject("employes", employes.findAll());
+		return mv;
+
+}
 
 }
