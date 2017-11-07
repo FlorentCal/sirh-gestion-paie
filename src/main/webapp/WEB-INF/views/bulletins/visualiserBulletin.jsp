@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,7 +51,9 @@
 						<tr>
 							<td>Salaire de base</td>
 							<td>${bulletin.remunerationEmploye.grade.nbHeuresBase}</td>
-							<td>${bulletin.remunerationEmploye.grade.tauxBase}</td>
+							<td><fmt:formatNumber type="number"
+									value="${bulletin.remunerationEmploye.grade.tauxBase}"
+									minFractionDigits="2" maxFractionDigits="2"/></td>
 							<td>${resultatCalculRemuneration.salaireDeBase}</td>
 							<td></td>
 							<td></td>
@@ -101,11 +104,15 @@
 								<td>${resultatCalculRemuneration.salaireBrut}</td>
 								<td>${cotisation.tauxSalarial}</td>
 								<td><c:if test="${cotisation.tauxSalarial != null}">
-										${resultatCalculRemuneration.salaireBrut * cotisation.tauxSalarial}
+										<fmt:formatNumber type="number"
+											value="${resultatCalculRemuneration.salaireBrut * cotisation.tauxSalarial}"
+											minFractionDigits="2" maxFractionDigits="2"/>
 									</c:if></td>
 								<td>${cotisation.tauxPatronal}</td>
 								<td><c:if test="${cotisation.tauxPatronal != null}">
-										${resultatCalculRemuneration.salaireBrut * cotisation.tauxPatronal}
+										<fmt:formatNumber type="number"
+											value="${resultatCalculRemuneration.salaireBrut * cotisation.tauxPatronal}"
+											minFractionDigits="2" maxFractionDigits="2"/>
 									</c:if></td>
 							</tr>
 						</c:forEach>
@@ -113,9 +120,13 @@
 							<td>Total Retenue</td>
 							<td></td>
 							<td></td>
-							<td>${resultatCalculRemuneration.totalRetenueSalarial}</td>
+							<td><fmt:formatNumber type="number"
+									value="${resultatCalculRemuneration.totalRetenueSalarial}"
+									minFractionDigits="2" maxFractionDigits="2"/></td>
 							<td></td>
-							<td>${resultatCalculRemuneration.totalCotisationsPatronales}</td>
+							<td><fmt:formatNumber type="number"
+									value="${resultatCalculRemuneration.totalCotisationsPatronales}"
+									minFractionDigits="2" maxFractionDigits="2"/></td>
 						</tr>
 
 					</tbody>
@@ -140,7 +151,9 @@
 								<td>${resultatCalculRemuneration.salaireBrut}</td>
 								<td>${cotisation.tauxSalarial}</td>
 								<td><c:if test="${cotisation.tauxSalarial != null}">
-										${resultatCalculRemuneration.salaireBrut * cotisation.tauxSalarial}
+										<fmt:formatNumber type="number"
+											value="${resultatCalculRemuneration.salaireBrut * cotisation.tauxSalarial}"
+											minFractionDigits="2" maxFractionDigits="2"/>
 									</c:if></td>
 								<td></td>
 								<td></td>

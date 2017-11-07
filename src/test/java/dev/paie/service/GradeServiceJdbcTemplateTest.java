@@ -24,18 +24,6 @@ public class GradeServiceJdbcTemplateTest {
 	@Autowired 
 	private GradeService gradeService;
 	
-	@Autowired
-	private DataSource dataSource;
-	
-	private JdbcTemplate jdbcTemplate;
-
-	@Before
-	public void setUp(){
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
-		String sql = "TRUNCATE TABLE GRADE";
-		this.jdbcTemplate.execute(sql);
-	}
-
 	@Test
 	public void test_sauvegarder_lister_mettre_a_jour() {
 		gradeService.sauvegarder(new Grade(
@@ -56,7 +44,8 @@ public class GradeServiceJdbcTemplateTest {
 		Grade grade = gradeService.lister().get(0);
 		assertThat(grade.getCode()).isEqualTo("PDG");
 		assertThat(grade.getNbHeuresBase()).isEqualTo("60.00");
-		assertThat(grade.getTauxBase()).isEqualTo("20.00");
+		//20.000000 because of @Column(precision=19, scale = 6)
+		assertThat(grade.getTauxBase()).isEqualTo("20.000000");
 	}
 
 }

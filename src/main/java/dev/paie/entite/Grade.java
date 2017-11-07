@@ -22,7 +22,7 @@ public class Grade {
 	@Column(name = "nb_heures_base")
 	private BigDecimal nbHeuresBase;
 
-	@Column(name = "taux_base")
+	@Column(name = "taux_base", precision=19, scale=6)
 	private BigDecimal tauxBase;
 
 	public Grade() {

@@ -42,8 +42,7 @@
 					<c:forEach var="bulletin" items="${bulletins}">
 						<tr>
 							<td>${bulletin.key.dateHeureCreationFormat}</td>
-							<td>${bulletin.key.periode.dateDebut}-
-								${bulletin.key.periode.dateFin}</td>
+							<td>${bulletin.key.periode.dateDebut} - ${bulletin.key.periode.dateFin}</td>
 							<td>${bulletin.key.remunerationEmploye.matricule}</td>
 							<td>${bulletin.value.salaireBrut}</td>
 							<td>${bulletin.value.netImposable}</td>

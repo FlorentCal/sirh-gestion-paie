@@ -25,17 +25,9 @@ import dev.paie.entite.Cotisation;
 @EnableTransactionManagement
 @Transactional
 public class CotisationServiceJpaTest {
-	
-	@PersistenceContext private EntityManager em;
-	
+		
 	@Autowired private CotisationService cotisationService;
-	
-	
-	@Before
-	public void setUp(){
-		em.createNativeQuery("TRUNCATE TABLE Cotisation").executeUpdate();
-	}
-	
+		
 	@Test
 	public void test_sauvegarder_lister_mettre_a_jour() {
 		//TODO sauvegarder une nouvelle cotisation

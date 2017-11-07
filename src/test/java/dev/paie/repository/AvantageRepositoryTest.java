@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.paie.config.ServicesConfig;
 import dev.paie.entite.Avantage;
-import dev.paie.service.InitialiserDonneesService;
 
 @ContextConfiguration(classes = { ServicesConfig.class })
 @RunWith(SpringRunner.class)

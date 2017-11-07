@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class BulletinSalaire implements Comparable {
+public class BulletinSalaire implements Comparable<BulletinSalaire> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -84,8 +84,7 @@ public class BulletinSalaire implements Comparable {
 	}
 	
 	@Override
-	public int compareTo(Object o) {
-		BulletinSalaire bulletinSalaire = (BulletinSalaire)o;
+	public int compareTo(BulletinSalaire bulletinSalaire) {
 		
 		if(this.dateHeureCreation.compareTo(bulletinSalaire.dateHeureCreation) == 0){
 			if (this.id == bulletinSalaire.id){
@@ -101,6 +100,7 @@ public class BulletinSalaire implements Comparable {
 	
 	    return this.dateHeureCreation.compareTo(bulletinSalaire.dateHeureCreation);
 	}
+
 	
 
 
