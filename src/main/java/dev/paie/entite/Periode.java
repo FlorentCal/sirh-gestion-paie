@@ -76,6 +76,13 @@ public class Periode {
 	/**
 	 * @return la date formattée
 	 */
+	public String getDateDebutFormat() {
+		return dateDebut.format(DateTimeFormatter.ofPattern("dd/MM/YYY"));
+	}
+	
+	/**
+	 * @return la date formattée
+	 */
 	public String getDateFinFormat() {
 		return dateFin.format(DateTimeFormatter.ofPattern("dd/MM/YYY"));
 	}

@@ -28,7 +28,7 @@
 		<div class="row top">
 			<table class="table table-bordered table-hover">
 				<thead>
-					<tr style="background: #cccccc;">
+					<tr class="grey">
 						<td>Date/heure création</td>
 						<td>Période</td>
 						<td>Matricule</td>
@@ -42,7 +42,7 @@
 					<c:forEach var="bulletin" items="${bulletins}">
 						<tr>
 							<td>${bulletin.key.dateHeureCreationFormat}</td>
-							<td>${bulletin.key.periode.dateDebut} - ${bulletin.key.periode.dateFin}</td>
+							<td>${bulletin.key.periode.dateDebutFormat} - ${bulletin.key.periode.dateFinFormat}</td>
 							<td>${bulletin.key.remunerationEmploye.matricule}</td>
 							<td>${bulletin.value.salaireBrut}</td>
 							<td>${bulletin.value.netImposable}</td>

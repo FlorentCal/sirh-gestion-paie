@@ -9,3 +9,8 @@ label {
 h1{
 	text-align : center;
 }
+
+.grey{
+	background: #cccccc;
+	font-weight: bold;
+}

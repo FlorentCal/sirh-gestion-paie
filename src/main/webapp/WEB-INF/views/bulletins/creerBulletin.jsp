@@ -24,8 +24,8 @@
 				<div class="col-md-10">
 					<select id="periode" name="periode" class="form-control">
 						<c:forEach var="periode" items="${periodes}">
-							<option value="${periode.id}">${periode.dateDebut}-
-								${periode.dateFin}</option>
+							<option value="${periode.id}">${periode.dateDebutFormat} -
+								${periode.dateFinFormat}</option>
 						</c:forEach>
 					</select>
 				</div>

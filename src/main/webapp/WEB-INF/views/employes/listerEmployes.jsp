@@ -26,7 +26,7 @@
 		<div class="row top">
 			<table class="table table-bordered table-hover">
 				<thead>
-					<tr style="background: #cccccc;">
+					<tr class="grey">
 						<td>Date/heure création</td>
 						<td>Matricule</td>
 						<td>Grade</td>

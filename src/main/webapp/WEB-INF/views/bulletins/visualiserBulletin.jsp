@@ -38,7 +38,7 @@
 				<h3>Salaire</h3>
 				<table class="table table-bordered table-hover">
 					<thead>
-						<tr style="background: #cccccc;">
+						<tr class="grey">
 							<td>Rubriques</td>
 							<td>Base</td>
 							<td>Taux Salarial</td>
@@ -49,7 +49,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>Salaire de base</td>
+							<td class="grey">Salaire de base</td>
 							<td>${bulletin.remunerationEmploye.grade.nbHeuresBase}</td>
 							<td><fmt:formatNumber type="number"
 									value="${bulletin.remunerationEmploye.grade.tauxBase}"
@@ -59,7 +59,7 @@
 							<td></td>
 						</tr>
 						<tr>
-							<td>Prime Except.</td>
+							<td class="grey">Prime Except.</td>
 							<td></td>
 							<td></td>
 							<td>${bulletin.primeExceptionnelle}</td>
@@ -67,7 +67,7 @@
 							<td></td>
 						</tr>
 						<tr>
-							<td></td>
+							<td class="grey"></td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -75,7 +75,7 @@
 							<td></td>
 						</tr>
 						<tr>
-							<td>Salaire Brut</td>
+							<td class="grey">Salaire Brut</td>
 							<td></td>
 							<td></td>
 							<td>${resultatCalculRemuneration.salaireBrut}</td>
@@ -88,7 +88,7 @@
 				<h3>Cotisations</h3>
 				<table class="table table-bordered table-hover">
 					<thead>
-						<tr style="background: #cccccc;">
+						<tr class="grey">
 							<td>Rubriques</td>
 							<td>Base</td>
 							<td>Taux Salarial</td>
@@ -117,7 +117,7 @@
 							</tr>
 						</c:forEach>
 						<tr>
-							<td>Total Retenue</td>
+							<td class="grey">Total Retenue</td>
 							<td></td>
 							<td></td>
 							<td><fmt:formatNumber type="number"
@@ -135,7 +135,7 @@
 					€</h3>
 				<table class="table table-bordered table-hover">
 					<thead>
-						<tr style="background: #cccccc;">
+						<tr class="grey">
 							<td>Rubriques</td>
 							<td>Base</td>
 							<td>Taux Salarial</td>
