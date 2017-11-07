@@ -23,6 +23,10 @@ import dev.paie.repository.EmployeRepository;
 import dev.paie.repository.PeriodeRepository;
 import dev.paie.service.CalculerRemunerationServiceSimple;
 
+/**
+ * @author Florent Callaou
+ *	Controller de gestion des pages liées aux bulletins
+ */
 @Controller
 @RequestMapping("/bulletins")
 public class BulletinSalaireController {

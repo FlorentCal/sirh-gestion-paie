@@ -17,13 +17,17 @@ public class Cotisation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	/** code : String */
 	private String code;
 	
+	/** libelle : String */
 	private String libelle;
 	
+	/** tauxSalarial : BigDecimal */
 	@Column(name = "taux_salarial", precision=19, scale=6)
 	private BigDecimal tauxSalarial;
 	
+	/** tauxPatronal : BigDecimal */
 	@Column(name = "taux_patronal", precision=19, scale=6)
 	private BigDecimal tauxPatronal;
 
@@ -39,40 +43,69 @@ public class Cotisation {
 		this.tauxPatronal = tauxPatronal;
 	}
 
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	public BigDecimal getTauxSalarial() {
-		return tauxSalarial;
-	}
-	public void setTauxSalarial(BigDecimal tauxSalarial) {
-		this.tauxSalarial = tauxSalarial;
-	}
-	public BigDecimal getTauxPatronal() {
-		return tauxPatronal;
-	}
-	public void setTauxPatronal(BigDecimal tauxPatronal) {
-		this.tauxPatronal = tauxPatronal;
-	}
+	/** Getter for id
+	 * @return the id
+	 */
 	public Integer getId() {
 		return id;
 	}
+	/** Setter for id
+	 * @param id the id to set
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	/** Getter for code
+	 * @return the code
+	 */
+	public String getCode() {
+		return code;
+	}
+	/** Setter for code
+	 * @param code the code to set
+	 */
+	public void setCode(String code) {
+		this.code = code;
+	}
 
+	/** Getter for libelle
+	 * @return the libelle
+	 */
+	public String getLibelle() {
+		return libelle;
+	}
+	/** Setter for libelle
+	 * @param libelle the libelle to set
+	 */
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
 
+	/** Getter for tauxSalarial
+	 * @return the tauxSalarial
+	 */
+	public BigDecimal getTauxSalarial() {
+		return tauxSalarial;
+	}
+	/** Setter for tauxSalarial
+	 * @param tauxSalarial the tauxSalarial to set
+	 */
+	public void setTauxSalarial(BigDecimal tauxSalarial) {
+		this.tauxSalarial = tauxSalarial;
+	}
 
+	/** Getter for tauxPatronal
+	 * @return the tauxPatronal
+	 */
+	public BigDecimal getTauxPatronal() {
+		return tauxPatronal;
+	}
+	/** Setter for tauxPatronal
+	 * @param tauxPatronal the tauxPatronal to set
+	 */
+	public void setTauxPatronal(BigDecimal tauxPatronal) {
+		this.tauxPatronal = tauxPatronal;
+	}
 
 }

@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 
 import dev.paie.service.InitialiserDonneesService;
 
+/**
+ * @author Florent Callaou
+ * Controller de gestion de l'initialisation de la BDD
+ */
 @Component
 public class InitialiserDonneesController {
 

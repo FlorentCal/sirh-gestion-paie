@@ -28,6 +28,10 @@ import dev.paie.repository.EntrepriseRepository;
 import dev.paie.repository.GradeRepository;
 import dev.paie.repository.ProfilRepository;
 
+/**
+ * @author Florent Callaou
+ * Initialise la BDD grace aux fichiers XML et au code java
+ */
 @Service
 @EnableTransactionManagement
 public class InitialiserDonneesServiceDev implements InitialiserDonneesService {

@@ -27,6 +27,7 @@ public class ResultatCalculRemuneration {
 	public void setSalaireDeBase(String salaireDeBase) {
 		this.salaireDeBase = salaireDeBase;
 	}
+	
 	/** Getter for salaireBrut
 	 * @return the salaireBrut
 	 */
@@ -39,6 +40,7 @@ public class ResultatCalculRemuneration {
 	public void setSalaireBrut(String salaireBrut) {
 		this.salaireBrut = salaireBrut;
 	}
+	
 	/** Getter for totalRetenueSalarial
 	 * @return the totalRetenueSalarial
 	 */
@@ -51,6 +53,7 @@ public class ResultatCalculRemuneration {
 	public void setTotalRetenueSalarial(String totalRetenueSalarial) {
 		this.totalRetenueSalarial = totalRetenueSalarial;
 	}
+	
 	/** Getter for totalCotisationsPatronales
 	 * @return the totalCotisationsPatronales
 	 */
@@ -63,6 +66,7 @@ public class ResultatCalculRemuneration {
 	public void setTotalCotisationsPatronales(String totalCotisationsPatronales) {
 		this.totalCotisationsPatronales = totalCotisationsPatronales;
 	}
+	
 	/** Getter for netImposable
 	 * @return the netImposable
 	 */
@@ -75,6 +79,7 @@ public class ResultatCalculRemuneration {
 	public void setNetImposable(String netImposable) {
 		this.netImposable = netImposable;
 	}
+	
 	/** Getter for netAPayer
 	 * @return the netAPayer
 	 */

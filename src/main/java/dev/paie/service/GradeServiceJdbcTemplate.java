@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import dev.paie.entite.Grade;
 
+/**
+ * @author Florent Callaou
+ * Persistence JDBC des grades
+ */
 @Repository
 public class GradeServiceJdbcTemplate implements GradeService {
 	

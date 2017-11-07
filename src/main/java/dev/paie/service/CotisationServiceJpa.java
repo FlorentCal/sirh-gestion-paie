@@ -10,6 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import dev.paie.entite.Cotisation;
 
+/**
+ * @author Florent Callaou
+ * Persistence JPA des cotisations
+ */
 @Repository
 public class CotisationServiceJpa implements CotisationService {
 	

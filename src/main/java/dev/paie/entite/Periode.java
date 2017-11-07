@@ -16,9 +16,11 @@ public class Periode {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	/** dateDebut : LocalDate */
 	@Column(name="date_debut")
 	private LocalDate dateDebut;
 	
+	/** dateFin : LocalDate */
 	@Column(name="date_fin")
 	private LocalDate dateFin;
 		
@@ -30,29 +32,50 @@ public class Periode {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 	}
-	public LocalDate getDateDebut() {
-		return dateDebut;
-	}
-	public void setDateDebut(LocalDate dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-	public LocalDate getDateFin() {
-		return dateFin;
-	}
-	public void setDateFin(LocalDate dateFin) {
-		this.dateFin = dateFin;
-	}
+
+	
+	/** Getter for id
+	 * @return the id
+	 */
 	public Integer getId() {
 		return id;
 	}
+	/** Setter for id
+	 * @param id the id to set
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 	
-	public String getDateDebutFormat() {
-		return dateDebut.format(DateTimeFormatter.ofPattern("dd/MM/YYY"));
+	/** Getter for dateDebut
+	 * @return the dateDebut
+	 */
+	public LocalDate getDateDebut() {
+		return dateDebut;
+	}
+	/** Setter for dateDebut
+	 * @param dateDebut the dateDebut to set
+	 */
+	public void setDateDebut(LocalDate dateDebut) {
+		this.dateDebut = dateDebut;
 	}
 	
+	/** Getter for dateFin
+	 * @return the dateFin
+	 */
+	public LocalDate getDateFin() {
+		return dateFin;
+	}
+	/** Setter for dateFin
+	 * @param dateFin the dateFin to set
+	 */
+	public void setDateFin(LocalDate dateFin) {
+		this.dateFin = dateFin;
+	}
+	
+	/**
+	 * @return la date formattée
+	 */
 	public String getDateFinFormat() {
 		return dateFin.format(DateTimeFormatter.ofPattern("dd/MM/YYY"));
 	}

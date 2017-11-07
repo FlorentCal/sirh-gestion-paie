@@ -17,17 +17,22 @@ public class RemunerationEmploye {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	/** matricule : String */
 	private String matricule;
 	
+	/** entreprise : Entreprise */
 	@ManyToOne
 	private Entreprise entreprise;
 	
+	/** profilRemuneration : ProfilRemuneration */
 	@ManyToOne
 	private ProfilRemuneration profilRemuneration;
 	
+	/** grade : Grade */
 	@ManyToOne
 	private Grade grade;
 	
+	/** dateHeureCreation : LocalDateTime */
 	@Column(name = "date_heure_creation")
 	private LocalDateTime dateHeureCreation;
 
@@ -45,52 +50,87 @@ public class RemunerationEmploye {
 		this.dateHeureCreation = dateHeureCreation;
 	}
 
-	public String getMatricule() {
-		return matricule;
-	}
-	public void setMatricule(String matricule) {
-		this.matricule = matricule;
-	}
-	
-	public Entreprise getEntreprise() {
-		return entreprise;
-	}
-	public void setEntreprise(Entreprise entreprise) {
-		this.entreprise = entreprise;
-	}
-	public ProfilRemuneration getProfilRemuneration() {
-		return profilRemuneration;
-	}
-	public void setProfilRemuneration(ProfilRemuneration profilRemuneration) {
-		this.profilRemuneration = profilRemuneration;
-	}
-	public Grade getGrade() {
-		return grade;
-	}
-	public void setGrade(Grade grade) {
-		this.grade = grade;
-	}
+	/** Getter for id
+	 * @return the id
+	 */
 	public Integer getId() {
 		return id;
 	}
+	/** Setter for id
+	 * @param id the id to set
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
+	/** Getter for matricule
+	 * @return the matricule
+	 */
+	public String getMatricule() {
+		return matricule;
+	}
+	/** Setter for matricule
+	 * @param matricule the matricule to set
+	 */
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
+	}
+
+	/** Getter for entreprise
+	 * @return the entreprise
+	 */
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+	/** Setter for entreprise
+	 * @param entreprise the entreprise to set
+	 */
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+
+	/** Getter for profilRemuneration
+	 * @return the profilRemuneration
+	 */
+	public ProfilRemuneration getProfilRemuneration() {
+		return profilRemuneration;
+	}
+	/** Setter for profilRemuneration
+	 * @param profilRemuneration the profilRemuneration to set
+	 */
+	public void setProfilRemuneration(ProfilRemuneration profilRemuneration) {
+		this.profilRemuneration = profilRemuneration;
+	}
+
+	/** Getter for grade
+	 * @return the grade
+	 */
+	public Grade getGrade() {
+		return grade;
+	}
+	/** Setter for grade
+	 * @param grade the grade to set
+	 */
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
+
 	/** Getter for dateHeureCreation
 	 * @return the dateHeureCreation
 	 */
 	public LocalDateTime getDateHeureCreation() {
 		return dateHeureCreation;
 	}
-
 	/** Setter for dateHeureCreation
 	 * @param dateHeureCreation the dateHeureCreation to set
 	 */
 	public void setDateHeureCreation(LocalDateTime dateHeureCreation) {
 		this.dateHeureCreation = dateHeureCreation;
 	}
-	
+
+	/**
+	 * @return la date formattée
+	 */
 	public String getDateHeureCreationFormat() {
 		return dateHeureCreation.format(DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm:ss"));
 	}

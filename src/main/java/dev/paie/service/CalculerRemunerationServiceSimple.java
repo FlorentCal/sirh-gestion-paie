@@ -11,6 +11,10 @@ import dev.paie.entite.Grade;
 import dev.paie.entite.ResultatCalculRemuneration;
 import dev.paie.util.PaieUtils;
 
+/**
+ * @author Florent Callaou
+ * Calcul des rémunérations affectée au bulletin de salaire
+ */
 @Service
 public class CalculerRemunerationServiceSimple implements CalculerRemunerationService {
 

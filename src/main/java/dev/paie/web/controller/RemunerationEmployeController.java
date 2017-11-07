@@ -15,6 +15,10 @@ import dev.paie.repository.EntrepriseRepository;
 import dev.paie.repository.GradeRepository;
 import dev.paie.repository.ProfilRepository;
 
+/**
+ * @author Florent Callaou
+ * Controller de gestion des pages liées aux employés
+ */
 @Controller
 @RequestMapping("/employes")
 public class RemunerationEmployeController {

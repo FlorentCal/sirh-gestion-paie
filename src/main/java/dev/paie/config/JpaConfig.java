@@ -14,6 +14,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * @author Florent Callaou
+ * Configuration des base (cf pom.xml et app.properties)
+ */
 @Configuration
 @EnableTransactionManagement
 public class JpaConfig {
