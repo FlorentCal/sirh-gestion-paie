@@ -3,6 +3,7 @@ package dev.paie.entite;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,26 +28,19 @@ public class RemunerationEmploye {
 	@ManyToOne
 	private Grade grade;
 	
+	@Column(name = "date_heure_creation")
 	private LocalDateTime dateHeureCreation;
-	
-	
 
 	public RemunerationEmploye() {
 		super();
 	}
 	
 	public RemunerationEmploye(String matricule, Entreprise entreprise, ProfilRemuneration profilRemuneration,
-			Grade grade) {
+			Grade grade, LocalDateTime dateHeureCreation) {
 		super();
 		this.matricule = matricule;
 		this.entreprise = entreprise;
 		this.profilRemuneration = profilRemuneration;
-		this.grade = grade;
-	}
-		
-	public RemunerationEmploye(String matricule, Grade grade, LocalDateTime dateHeureCreation) {
-		super();
-		this.matricule = matricule;
 		this.grade = grade;
 		this.dateHeureCreation = dateHeureCreation;
 	}

@@ -6,25 +6,27 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/employe.css">
+	href="<%=request.getContextPath()%>/css/theme.css">
 
 <jsp:include page="../script.jsp"></jsp:include>
 
 <title>SGP - Paie</title>
 </head>
 <body>
+
+	<c:set property="tabActive" var="employesActive" value="employesActive" scope="request"></c:set>
 	<c:import url="../navBar.jsp"></c:import>
 
 	<div class="container">
 		<div class="row">
-			<a class="col-2 offset-10 btn btn-primary"
+			<a class="col-3 offset-9 btn btn-primary"
 				href="<c:url value='/mvc/employes/creer'/>">Ajouter un employé</a>
 		</div>
 
 		<div class="row top">
 			<table class="table table-bordered table-hover">
 				<thead>
-					<tr>
+					<tr style="background: #cccccc;">
 						<td>Date/heure création</td>
 						<td>Matricule</td>
 						<td>Grade</td>

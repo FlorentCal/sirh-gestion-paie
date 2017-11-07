@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/employe.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/theme.css">
 
 <jsp:include page="../script.jsp"></jsp:include>
 
@@ -51,7 +52,8 @@
 				<div class="col-10">
 					<select id="grade" name="grade" class="form-control">
 						<c:forEach var="grade" items="${grades}">
-							<option value="${grade.id}">${grade.code} -	${grade.salaireAnnuel} € / an</option>
+							<option value="${grade.id}">${grade.code}-
+								${grade.salaireAnnuel} € / an</option>
 						</c:forEach>
 					</select>
 				</div>

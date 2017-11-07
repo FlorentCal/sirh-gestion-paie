@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/theme.css">
+	
 <jsp:include page="../script.jsp"></jsp:include>
 
 <title>SGP - Paie</title>
@@ -13,9 +16,8 @@
 	<c:import url="../navBar.jsp"></c:import>
 
 	<div class="container">
-
 		<form class="form-horizontal" method="post">
-			<div class="row form-group">
+			<div class="row form-group top">
 				<label class="col-2 control-label" for="periode">Période</label>
 				<div class="col-md-10">
 					<select id="periode" name="periode" class="form-control">
@@ -39,21 +41,21 @@
 			</div>
 
 			<div class="row form-group">
-				<label class="col-2 control-label" for="prime">Prime
+				<label class="col-2 control-label" for="primeExceptionnelle">Prime
 					exceptionnelle</label>
 				<div class="col-10">
-					<input id="prime" name="prime" type="number" step="0.01" min="0"
-						value="0" placeholder="Prime exceptionnelle"
-						class="form-control input-md" required>
+					<input id="primeExceptionnelle" name="primeExceptionnelle"
+						type="number" step="0.01" min="0" value="0"
+						placeholder="Prime exceptionnelle" class="form-control input-md"
+						required>
 				</div>
 			</div>
 
-			<div class="row col-3 offset-9">
-				<input type="submit" class="btn btn-success"
-					value="Créer">
+			<div class="row">
+				<input type="submit" class="btn btn-success col-2 offset-10" value="Créer">
 			</div>
 		</form>
-		
+
 	</div>
 </body>
 </html>

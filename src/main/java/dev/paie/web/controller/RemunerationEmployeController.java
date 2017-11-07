@@ -34,11 +34,15 @@ public class RemunerationEmployeController {
 	@RequestMapping(method = RequestMethod.GET, path = "/creer")
 	public ModelAndView creerEmploye() {
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("employes/creerEmploye");
+		
 		mv.addObject("titre", "Ajouter un employé");
+		
 		mv.addObject("entreprises", entreprises.findAll());
 		mv.addObject("profils", profils.findAll());
 		mv.addObject("grades", grades.findAll());
+		
 		return mv;
 	}
 
@@ -50,6 +54,7 @@ public class RemunerationEmployeController {
 			@RequestParam("entreprise") Integer entreprise) {
 
 		RemunerationEmploye remunerationEmploye= new RemunerationEmploye();
+		
 		remunerationEmploye.setMatricule(matricule);
 		remunerationEmploye.setEntreprise(entreprises.findOne(entreprise));
 		remunerationEmploye.setProfilRemuneration(profils.findOne(profil));
@@ -64,12 +69,15 @@ public class RemunerationEmployeController {
 
 	@RequestMapping(method = RequestMethod.GET, path = "/lister")
 	public ModelAndView listerEmployes() {
+		
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("employes/listerEmployes");
+		
 		mv.addObject("titre", "Liste des employés");
 		mv.addObject("employes", employes.findAll());
+		
 		return mv;
-
-}
+	}
 
 }
