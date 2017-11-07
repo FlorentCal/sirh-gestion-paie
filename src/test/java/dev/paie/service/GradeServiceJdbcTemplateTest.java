@@ -39,8 +39,7 @@ public class GradeServiceJdbcTemplateTest {
 				"PDG", 
 				new BigDecimal("60"), 
 				new BigDecimal("20")));
-
-		
+	
 		Grade grade = gradeService.lister().get(0);
 		assertThat(grade.getCode()).isEqualTo("PDG");
 		assertThat(grade.getNbHeuresBase()).isEqualTo("60.00");

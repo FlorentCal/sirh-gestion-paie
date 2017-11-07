@@ -28,7 +28,7 @@
 			<div class="col-3 offset-6">
 				<strong>Période</strong><br> Du
 				${bulletin.periode.dateDebutFormat} au
-				${bulletin.periode.dateDebutFormat} <br> <br> <strong>Matricule
+				${bulletin.periode.dateFinFormat} <br> <br> <strong>Matricule
 					: ${bulletin.remunerationEmploye.matricule}</strong>
 			</div>
 		</div>
