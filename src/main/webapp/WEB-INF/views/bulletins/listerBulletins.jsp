@@ -15,7 +15,7 @@
 </head>
 <body>
 
-	<c:set property="tabActive" var="bulletinsActive" scope="request"></c:set>
+	<c:set value="bulletinsActive" var="tabActive" scope="request"></c:set>
 	<c:import url="../navBar.jsp"></c:import>
 
 	<div class="container">
@@ -48,7 +48,7 @@
 							<td>${bulletin.value.salaireBrut}</td>
 							<td>${bulletin.value.netImposable}</td>
 							<td>${bulletin.value.netAPayer}</td>
-							<td><a class="btn primary" href="<c:url value=''/>">Visualiser</a></td>
+							<td><a class="btn" href="<c:url value='/mvc/bulletins/visualiser/${bulletin.key.id}'/>">Visualiser</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

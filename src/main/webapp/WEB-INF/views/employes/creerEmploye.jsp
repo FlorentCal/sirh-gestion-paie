@@ -13,6 +13,8 @@
 <title>SGP - Paie</title>
 </head>
 <body>
+
+	<c:set value="employesActive" var="tabActive" scope="request"></c:set>
 	<c:import url="../navBar.jsp"></c:import>
 
 	<div class="container top">
@@ -52,8 +54,7 @@
 				<div class="col-10">
 					<select id="grade" name="grade" class="form-control">
 						<c:forEach var="grade" items="${grades}">
-							<option value="${grade.id}">${grade.code}-
-								${grade.salaireAnnuel} € / an</option>
+							<option value="${grade.id}">${grade.code} - ${grade.salaireAnnuel} € / an</option>
 						</c:forEach>
 					</select>
 				</div>

@@ -2,17 +2,21 @@ package dev.paie.web.controller;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.paie.entite.BulletinSalaire;
+import dev.paie.entite.Cotisation;
 import dev.paie.entite.ResultatCalculRemuneration;
 import dev.paie.repository.BulletinSalaireRepository;
 import dev.paie.repository.EmployeRepository;
@@ -28,13 +32,13 @@ public class BulletinSalaireController {
 
 	@Autowired
 	private EmployeRepository employes;
-	
+
 	@Autowired
 	private BulletinSalaireRepository bulletins;
-	
+
 	@Autowired
 	CalculerRemunerationServiceSimple calculerRemunerationServiceSimple;
-	
+
 
 	@RequestMapping(method = RequestMethod.GET, path = "/creer")
 	public ModelAndView creerBulletin() {
@@ -54,36 +58,58 @@ public class BulletinSalaireController {
 			@RequestParam("primeExceptionnelle") String primeExceptionnelle) {
 
 		BulletinSalaire bulletinSalaire = new BulletinSalaire();
-		
+
 		bulletinSalaire.setPeriode(periodes.findOne(idPeriode));
 		bulletinSalaire.setRemunerationEmploye(employes.findOne(idEmploye));
 		bulletinSalaire.setPrimeExceptionnelle(new BigDecimal(primeExceptionnelle));
 		bulletinSalaire.setDateHeureCreation(LocalDateTime.now());
-		
+
 		bulletins.save(bulletinSalaire);
-		
+
 		return "redirect:/mvc/bulletins/lister";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, path = "/lister")
 	public ModelAndView listerBulletins() {
-		
+
 		ModelAndView mv = new ModelAndView();
-		
+
 		Map<BulletinSalaire, ResultatCalculRemuneration> bulletinsCalcul = new TreeMap<>();
-		
+
 		mv.setViewName("bulletins/listerBulletins");
-		
+
 		mv.addObject("titre", "Liste des bulletins");
-		
+
 		bulletins.findAll()
 		.forEach(bulletin -> bulletinsCalcul.put(bulletin, calculerRemunerationServiceSimple.calculer(bulletin)));
-		
+
 		mv.addObject("bulletins", bulletinsCalcul);	
-		
+
 		return mv;
 	}
+
+	@RequestMapping(method=RequestMethod.GET, path = "/visualiser/{id}")
+	public String visualiserBulletin(
+			@PathVariable Integer id, 
+			Model m){
+
+		BulletinSalaire bulletin = bulletins.findOne(id);
+
+		ResultatCalculRemuneration resultatCalculRemuneration = calculerRemunerationServiceSimple.calculer(bulletin);
+
+		List<Cotisation> cotisationsNonImposables = bulletin.getRemunerationEmploye().getProfilRemuneration().getCotisationsNonImposables();
+		
+		List<Cotisation> cotisationsImposables = bulletin.getRemunerationEmploye().getProfilRemuneration().getCotisationsImposables();
+		
+		m.addAttribute("titre", "Bulletin de salaire");
 	
+		m.addAttribute("bulletin", bulletin);
+		m.addAttribute("resultatCalculRemuneration", resultatCalculRemuneration);
+		m.addAttribute("cotisationsNonImposables", cotisationsNonImposables);
+		m.addAttribute("cotisationsImposables", cotisationsImposables);
+
+		return "bulletins/visualiserBulletin";
+	}
 
 
 }

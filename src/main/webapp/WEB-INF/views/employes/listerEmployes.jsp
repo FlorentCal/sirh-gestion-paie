@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<c:set property="tabActive" var="employesActive" value="employesActive" scope="request"></c:set>
+	<c:set value="employesActive" var="tabActive" scope="request"></c:set>
 	<c:import url="../navBar.jsp"></c:import>
 
 	<div class="container">

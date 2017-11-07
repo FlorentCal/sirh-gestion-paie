@@ -6,12 +6,14 @@
 <div class="container">
 	<div class="form-inline">
 		<ul class="nav nav-tabs" role="tablist">
-			<li class="nav-item"><a class="nav-link <c:if test='tabActive == "employesActive"'>active</c:if>" id="home-tab"
-				href="../employes/lister" role="tab" aria-controls="home"
-				aria-selected="true">Employés</a></li>
-			<li class="nav-item"><a class="nav-link <c:if test='tabActive == "bulletinsActive"'>active</c:if>" id="profile-tab"
-				href="../bulletins/lister" role="tab" aria-controls="profile"
-				aria-selected="false">Bulletins</a></li>
+			<li class="nav-item"><a
+				class="nav-link <c:if test="${tabActive == 'employesActive'}">active</c:if>"
+				id="home-tab" href="/paie/mvc/employes/lister" role="tab"
+				aria-controls="home" aria-selected="true">Employés </a></li>
+			<li class="nav-item"><a
+				class="nav-link <c:if test="${tabActive == 'bulletinsActive'}">active</c:if>"
+				id="profile-tab" href="/paie/mvc/bulletins/lister" role="tab"
+				aria-controls="profile" aria-selected="false">Bulletins</a></li>
 		</ul>
 	</div>
 

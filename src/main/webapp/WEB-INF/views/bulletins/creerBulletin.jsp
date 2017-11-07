@@ -13,6 +13,8 @@
 <title>SGP - Paie</title>
 </head>
 <body>
+
+	<c:set value="bulletinsActive" var="tabActive" scope="request"></c:set>
 	<c:import url="../navBar.jsp"></c:import>
 
 	<div class="container">
