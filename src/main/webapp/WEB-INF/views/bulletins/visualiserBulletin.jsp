@@ -5,8 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/theme.css">
 
 <jsp:include page="../script.jsp"></jsp:include>
 

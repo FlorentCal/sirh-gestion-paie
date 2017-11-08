@@ -1,12 +1,10 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/theme.css">
 
 <jsp:include page="../script.jsp"></jsp:include>
 
@@ -18,10 +16,14 @@
 	<c:import url="../navBar.jsp"></c:import>
 
 	<div class="container">
-		<div class="row">
-			<a class="col-3 offset-9 btn btn-primary"
-				href="<c:url value='/mvc/employes/creer'/>">Ajouter un employé</a>
-		</div>
+		<sec:authorize access="hasRole('ROLE_ADMINISTRATEUR')">
+			<div class="row">
+				<div class="col">
+					<a class="btn btn-primary float-right"
+						href="<c:url value='/mvc/employes/creer'/>">Ajouter un employé</a>
+				</div>	
+			</div>
+		</sec:authorize>
 
 		<div class="row top">
 			<table class="table table-bordered table-hover">

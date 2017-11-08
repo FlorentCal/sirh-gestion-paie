@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,8 +44,8 @@ public class BulletinSalaireController {
 	@Autowired
 	CalculerRemunerationServiceSimple calculerRemunerationServiceSimple;
 
-
 	@RequestMapping(method = RequestMethod.GET, path = "/creer")
+	@Secured("ROLE_ADMINISTRATEUR")
 	public ModelAndView creerBulletin() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("bulletins/creerBulletin");
@@ -56,6 +57,7 @@ public class BulletinSalaireController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, path = "/creer")
+	@Secured("ROLE_ADMINISTRATEUR")
 	public String creerBulletin(
 			@RequestParam("periode") Integer idPeriode,
 			@RequestParam("employe") Integer idEmploye,
@@ -74,6 +76,7 @@ public class BulletinSalaireController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/lister")
+	@Secured({"ROLE_UTILISATEUR", "ROLE_ADMINISTRATEUR"})
 	public ModelAndView listerBulletins() {
 
 		ModelAndView mv = new ModelAndView();
@@ -93,6 +96,7 @@ public class BulletinSalaireController {
 	}
 
 	@RequestMapping(method=RequestMethod.GET, path = "/visualiser/{id}")
+	@Secured({"ROLE_UTILISATEUR", "ROLE_ADMINISTRATEUR"})
 	public String visualiserBulletin(
 			@PathVariable Integer id, 
 			Model m){

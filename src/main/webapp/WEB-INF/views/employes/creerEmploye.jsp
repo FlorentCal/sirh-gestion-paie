@@ -1,12 +1,10 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/theme.css">
 
 <jsp:include page="../script.jsp"></jsp:include>
 
@@ -16,6 +14,7 @@
 
 	<c:set value="employesActive" var="tabActive" scope="request"></c:set>
 	<c:import url="../navBar.jsp"></c:import>
+	<sec:csrfInput />
 
 	<div class="container top">
 		<form class="form-horizontal" method="post">
@@ -60,9 +59,9 @@
 				</div>
 			</div>
 
-			<div class="row col-2 offset-11">
-				<div>
-					<input type="submit" class="btn btn-success" value="Ajouter">
+			<div class="row">
+				<div class="col">
+					<input type="submit" class="btn btn-success float-right" value="Ajouter">
 				</div>
 			</div>
 		</form>

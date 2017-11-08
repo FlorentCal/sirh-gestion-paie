@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@PropertySource("app.properties")
+@PropertySource("classpath:app.properties")
 public class JpaConfig {
 
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("app");

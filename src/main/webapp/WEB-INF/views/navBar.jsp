@@ -1,8 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/theme.css">
-
 <div class="container">
 	<div class="form-inline">
 		<ul class="nav nav-tabs" role="tablist">

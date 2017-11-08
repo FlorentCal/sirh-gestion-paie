@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,7 @@ import dev.paie.entite.Grade;
 import dev.paie.entite.Periode;
 import dev.paie.entite.ProfilRemuneration;
 import dev.paie.entite.RemunerationEmploye;
+import dev.paie.entite.Utilisateur;
 import dev.paie.repository.EntrepriseRepository;
 import dev.paie.repository.GradeRepository;
 import dev.paie.repository.ProfilRepository;
@@ -47,6 +49,9 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 	
 	@Autowired
 	ProfilRepository profils;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Transactional
 	@Override
@@ -72,7 +77,7 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 			periodes.add(new Periode(firstDayOfMonth, firstDayOfMonth.with(lastDayOfMonth())));
 		}		
 		
-		periodes.stream().forEach(periode -> em.persist(periode));
+		save(periodes);
 		
 		List<RemunerationEmploye> employes = new ArrayList<>();
 		
@@ -101,20 +106,58 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 				grades.findAll().get(1), 
 				LocalDateTime.of(2017, 6, 1, 10, 18)));
 		
-		employes.stream().forEach(employe -> em.persist(employe));
+		save(employes);
 		
 		List<BulletinSalaire> bulletins = new ArrayList<>();
 		
-		bulletins.add(new BulletinSalaire(employes.get(0), periodes.get(0), new BigDecimal("100"), LocalDateTime.of(2017, 06, 01, 10, 16)));
-		bulletins.add(new BulletinSalaire(employes.get(1), periodes.get(0), new BigDecimal("200"), LocalDateTime.of(2017, 06, 01, 10, 17)));
-		bulletins.add(new BulletinSalaire(employes.get(2), periodes.get(0), new BigDecimal("115"), LocalDateTime.of(2017, 06, 01, 10, 17)));
-		bulletins.add(new BulletinSalaire(employes.get(3), periodes.get(0), new BigDecimal("152"), LocalDateTime.of(2017, 06, 01, 10, 18)));
+		bulletins.add(new BulletinSalaire(
+				employes.get(0),
+				periodes.get(0), 
+				new BigDecimal("100"), 
+				LocalDateTime.of(2017, 06, 01, 10, 16)));
+		bulletins.add(new BulletinSalaire(
+				employes.get(1), 
+				periodes.get(0), 
+				new BigDecimal("200"), 
+				LocalDateTime.of(2017, 06, 01, 10, 17)));
+		bulletins.add(new BulletinSalaire(
+				employes.get(2), 
+				periodes.get(0), 
+				new BigDecimal("115"), 
+				LocalDateTime.of(2017, 06, 01, 10, 17)));
+		bulletins.add(new BulletinSalaire(employes.get(3), 
+				periodes.get(0), 
+				new BigDecimal("152"), 
+				LocalDateTime.of(2017, 06, 01, 10, 18)));
 		
-		bulletins.stream().forEach(bulletin -> em.persist(bulletin));
-	
+		save(bulletins);
+		
+		List<Utilisateur> utilisateurs = new ArrayList<>();
+		
+		utilisateurs.add(new Utilisateur(
+				"root", 
+				passwordEncoder.encode("root"), 
+				true, 
+				Utilisateur.ROLES.ROLE_ADMINISTRATEUR));
+		utilisateurs.add(new Utilisateur(
+				"user_w", 
+				passwordEncoder.encode("admin_w"), 
+				true, 
+				Utilisateur.ROLES.ROLE_ADMINISTRATEUR));
+		utilisateurs.add(new Utilisateur(
+				"user_normal", 
+				passwordEncoder.encode("user_normal"), 
+				true, 
+				Utilisateur.ROLES.ROLE_UTILISATEUR));
+		
+		save(utilisateurs);
 		
 		context.close();
 
+	}
+	
+	private <T> void save(List<T> listToPersist){
+		listToPersist.stream().forEach(object -> em.persist(object));
 	}
 
 

@@ -1,13 +1,11 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/theme.css">
-	
 <jsp:include page="../script.jsp"></jsp:include>
 
 <title>SGP - Paie</title>
@@ -16,16 +14,17 @@
 
 	<c:set value="bulletinsActive" var="tabActive" scope="request"></c:set>
 	<c:import url="../navBar.jsp"></c:import>
+	<sec:csrfInput />
 
 	<div class="container">
 		<form class="form-horizontal" method="post">
 			<div class="row form-group top">
 				<label class="col-2 control-label" for="periode">Période</label>
-				<div class="col-md-10">
+				<div class="col-10">
 					<select id="periode" name="periode" class="form-control">
 						<c:forEach var="periode" items="${periodes}">
-							<option value="${periode.id}">${periode.dateDebutFormat} -
-								${periode.dateFinFormat}</option>
+							<option value="${periode.id}">${periode.dateDebutFormat}
+								- ${periode.dateFinFormat}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -54,7 +53,10 @@
 			</div>
 
 			<div class="row">
-				<input type="submit" class="btn btn-success col-2 offset-10" value="Créer">
+				<div class="col">
+					<input type="submit" class="btn btn-success float-right"
+						value="Créer">
+				</div>
 			</div>
 		</form>
 
